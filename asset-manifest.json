@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/rocket-code-chat/static/css/main.73f9d36f.css",
-    "main.js": "/rocket-code-chat/static/js/main.a3706cc6.js",
+    "main.js": "/rocket-code-chat/static/js/main.9168e9b8.js",
     "static/media/avatar.png": "/rocket-code-chat/static/media/avatar.70775b009e9ac8d086af.png",
     "index.html": "/rocket-code-chat/index.html",
     "main.73f9d36f.css.map": "/rocket-code-chat/static/css/main.73f9d36f.css.map",
-    "main.a3706cc6.js.map": "/rocket-code-chat/static/js/main.a3706cc6.js.map"
+    "main.9168e9b8.js.map": "/rocket-code-chat/static/js/main.9168e9b8.js.map"
   },
   "entrypoints": [
     "static/css/main.73f9d36f.css",
-    "static/js/main.a3706cc6.js"
+    "static/js/main.9168e9b8.js"
   ]
 }
