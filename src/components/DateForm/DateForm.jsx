@@ -3,7 +3,7 @@ import { Avatar, Container, Form, InputContainer, Response, Title } from './Date
 
 import avatar from "../../img/avatar.png";
 
-export const DateForm = ({ parentData }) => {
+export const DateForm = ({ parentData, endRef }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -13,10 +13,27 @@ export const DateForm = ({ parentData }) => {
     auxData.month = event.target[1].value;
     auxData.year = event.target[2].value;
 
+    // Reg exp for valitation
+    const regExpDay = new RegExp(/^\d{2}$/);
+    const regExpMonth = new RegExp(/^[a-zA-Z ]*$/);
+    const regExpYear = new RegExp(/^\d{4}$/);
+
+    // Validations
+    if( !regExpDay.test(auxData.day) ){
+      alert('Ingresa un "día" válido');
+      return;
+    } else if( !regExpMonth.test(auxData.month) ){
+      alert('Ingresa un "mes" válido en texto');
+      return;
+    } else if( !regExpYear.test(auxData.year) ){
+      alert('Ingresa un "año" válido');
+      return;
+    }
+
     parentData.getGlobal.showResponse.DateForm = true;
     parentData.setGlobal({...auxData});
     setTimeout(() => {
-      parentData.getGlobal.endRef.current.scrollIntoView({behavior: "smooth"})
+      endRef.current.scrollIntoView({behavior: "smooth"})
     }, 400);
   }
 

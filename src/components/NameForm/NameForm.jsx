@@ -3,7 +3,7 @@ import { Avatar, Container, Form, InputContainer, Response, Title } from './Name
 
 import avatar from "../../img/avatar.png";
 
-export const NameForm = ({ parentData }) => {
+export const NameForm = ({ parentData, endRef }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -27,8 +27,8 @@ export const NameForm = ({ parentData }) => {
       auxData.showResponse.NameForm = true
       parentData.setGlobal({...auxData})
       setTimeout(() => {
-        parentData.getGlobal.endRef.current.scrollIntoView({behavior: "smooth"})
-      }, 400);
+        endRef.current.scrollIntoView({behavior: "smooth"})
+      }, 500);
     }
   }
 
