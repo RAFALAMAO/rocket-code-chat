@@ -33,25 +33,23 @@ export const DateForm = ({ parentData, endRef }) => {
     parentData.getGlobal.showResponse.DateForm = true;
     parentData.setGlobal({...auxData});
     setTimeout(() => {
-      endRef.current.scrollIntoView({behavior: "smooth"})
+      endRef.current.scrollIntoView({behavior: "smooth"});
     }, 400);
-  }
+  };
 
   return (
-    <>
-      <Container $visible={parentData.getGlobal.showResponse.NameForm}>
-        <Avatar src={avatar} alt="avatar" />
-        <Form onSubmit={handleSubmit}>
-          <Title>¿Cuál es tu fecha de nacimiento?</Title>
-          <InputContainer>
-            <input type="text" id="name" placeholder="Dia"/>
-            <input type="text" id="secondName" placeholder="Mes" />
-            <input type="text" id="maternalSurname" placeholder="Año" />
-          </InputContainer>
-          <button type="submit" style={{display: 'none'}}></button>
-        </Form>
-        <Response $visible={parentData.getGlobal.showResponse.DateForm}>{`${parentData.getGlobal.day} ${parentData.getGlobal.month} ${parentData.getGlobal.year}`}</Response>
-      </Container>
-    </>
-  )
-}
+    <Container $visible={parentData.getGlobal.showResponse.NameForm}>
+      <Avatar src={avatar} alt="avatar" />
+      <Form onSubmit={handleSubmit}>
+        <Title>¿Cuál es tu fecha de nacimiento?</Title>
+        <InputContainer>
+          <input type="text" id="name" placeholder="Dia"/>
+          <input type="text" id="secondName" placeholder="Mes" />
+          <input type="text" id="maternalSurname" placeholder="Año" />
+        </InputContainer>
+        <button type="submit" style={{display: 'none'}}></button>
+      </Form>
+      <Response $visible={parentData.getGlobal.showResponse.DateForm}>{`${parentData.getGlobal.day} ${parentData.getGlobal.month} ${parentData.getGlobal.year}`}</Response>
+    </Container>
+  );
+};

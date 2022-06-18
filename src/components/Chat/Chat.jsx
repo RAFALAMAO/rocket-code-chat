@@ -43,13 +43,13 @@ export const Chat = () => {
       // Show final got data
       showFinalData: true
     })
-  )
+  );
 
   // Global state and set state in a class
   const parentData = {
     getGlobal: GlobalDataState,
     setGlobal: setGlobalDataState
-  }
+  };
 
   useEffect(() => {
     sessionStorage.setItem('GlobalDataState', JSON.stringify(GlobalDataState));
@@ -70,5 +70,5 @@ export const Chat = () => {
         <div ref={endRef}></div>
       </ChatBody>
     </ChatContainer>
-  )
+  );
 }

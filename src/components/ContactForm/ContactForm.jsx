@@ -1,5 +1,4 @@
-import React from 'react'
-import { Avatar, Button, Confirm, Container, FinalResponse, Form, InputContainer, Response, Title } from './ContactFormStyles'
+import { Avatar, Button, Confirm, Container, FinalResponse, Form, InputContainer, Response, Title } from './ContactFormStyles';
 
 import avatar from "../../img/avatar.png";
 
@@ -28,9 +27,9 @@ export const ContactForm = ({ parentData, endRef }) => {
     auxData.showResponse.ContactForm = true;
     parentData.setGlobal({...auxData})
     setTimeout(() => {
-      endRef.current.scrollIntoView({behavior: "smooth"})
+      endRef.current.scrollIntoView({behavior: "smooth"});
     }, 400);
-  }
+  };
 
   const showFinalData = () => {
     let auxData = parentData.getGlobal;
@@ -38,40 +37,38 @@ export const ContactForm = ({ parentData, endRef }) => {
     auxData.showResponse.showFinalData = true;
     parentData.setGlobal({...auxData})
     setTimeout(() => {
-      endRef.current.scrollIntoView({behavior: "smooth"})
+      endRef.current.scrollIntoView({behavior: "smooth"});
     }, 400);
   }
 
   return (
-    <>
-      <Container $visible={parentData.getGlobal.showResponse.DateForm}>
-        <Avatar src={avatar} alt="avatar" />
-        <Form onSubmit={handleSubmit}>
-          <Title>Datos de contacto</Title>
-          <InputContainer>
-            <input type="text" id="email" placeholder="Correo electrónico"/>
-            <input type="text" id="number" placeholder="Teléfono celular" />
-          </InputContainer>
-          <button type="submit" style={{display: 'none'}}></button>
-        </Form>
-        <Response $visible={parentData.getGlobal.showResponse.ContactForm}>
-          {'Correo electrónico: ' + parentData.getGlobal.email} <br />
-          {'Teléfono celular: ' + parentData.getGlobal.number}
-        </Response>
+    <Container $visible={parentData.getGlobal.showResponse.DateForm}>
+      <Avatar src={avatar} alt="avatar" />
+      <Form onSubmit={handleSubmit}>
+        <Title>Datos de contacto</Title>
+        <InputContainer>
+          <input type="text" id="email" placeholder="Correo electrónico"/>
+          <input type="text" id="number" placeholder="Teléfono celular" />
+        </InputContainer>
+        <button type="submit" style={{display: 'none'}}></button>
+      </Form>
+      <Response $visible={parentData.getGlobal.showResponse.ContactForm}>
+        {'Correo electrónico: ' + parentData.getGlobal.email} <br />
+        {'Teléfono celular: ' + parentData.getGlobal.number}
+      </Response>
 
-        {/* Final confirmation */}
-        <Confirm $visible={parentData.getGlobal.showResponse.ContactForm}>Si tus datos son correctos por favor continuemos</Confirm>
-        <Button $visible={parentData.getGlobal.showResponse.ContactForm} onClick={showFinalData}>Iniciar</Button>
-        <FinalResponse $visible={parentData.getGlobal.showResponse.showFinalData}>
-          {`Fecha de nacimiento: ${parentData.getGlobal.day} ${parentData.getGlobal.month} ${parentData.getGlobal.year}`}<br />
-          {`Correo electrónico: ${parentData.getGlobal.email}`}<br />
-          {`Teléfono celular: ${parentData.getGlobal.number}`}<br />
-          {`Nombre: ${parentData.getGlobal.name}
-          ${parentData.getGlobal.secondName}
-          ${parentData.getGlobal.paternalSurname}
-          ${parentData.getGlobal.maternalSurname}`}<br />
-        </FinalResponse>
-      </Container>
-    </>
+      {/* Final confirmation */}
+      <Confirm $visible={parentData.getGlobal.showResponse.ContactForm}>Si tus datos son correctos por favor continuemos</Confirm>
+      <Button $visible={parentData.getGlobal.showResponse.ContactForm} onClick={showFinalData}>Iniciar</Button>
+      <FinalResponse $visible={parentData.getGlobal.showResponse.showFinalData}>
+        {`Fecha de nacimiento: ${parentData.getGlobal.day} ${parentData.getGlobal.month} ${parentData.getGlobal.year}`}<br />
+        {`Correo electrónico: ${parentData.getGlobal.email}`}<br />
+        {`Teléfono celular: ${parentData.getGlobal.number}`}<br />
+        {`Nombre: ${parentData.getGlobal.name}
+        ${parentData.getGlobal.secondName}
+        ${parentData.getGlobal.paternalSurname}
+        ${parentData.getGlobal.maternalSurname}`}<br />
+      </FinalResponse>
+    </Container>
   )
 }
